@@ -26,7 +26,7 @@ class StorageMixin(object):
         from other storages
         """
         messages, all_retrieved = super(StorageMixin, self)._get(*args, **kwargs)
-        if self.user.is_authenticated():
+        if self.user.is_authenticated:
             inbox_messages = self.backend.inbox_list(self.user)
         else:
             inbox_messages = []

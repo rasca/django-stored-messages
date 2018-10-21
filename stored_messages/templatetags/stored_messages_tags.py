@@ -23,7 +23,7 @@ def stored_messages_list(context, num_elements=10):
             }
 
 
-@register.assignment_tag(takes_context=True)
+@register.simple_tag(takes_context=True)
 def stored_messages_count(context):
     """
     Renders a list of unread stored messages for the current user
