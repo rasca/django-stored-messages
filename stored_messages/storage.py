@@ -51,7 +51,7 @@ class StorageMixin(object):
         if level < self.level:
             return
         # Check if the message doesn't have a level that needs to be persisted
-        if level not in stored_messages_settings.STORE_LEVELS or self.user.is_anonymous():
+        if level not in stored_messages_settings.STORE_LEVELS or self.user.is_anonymous:
             return super(StorageMixin, self).add(level, message, extra_tags)
 
         self.added_new = True
@@ -70,7 +70,7 @@ class StorageMixin(object):
         else contains both new and unread messages
         """
         contrib_messages = []
-        if self.user.is_authenticated():
+        if self.user.is_authenticated:
             if not messages:
                 # erase inbox
                 self.backend.inbox_purge(self.user)
