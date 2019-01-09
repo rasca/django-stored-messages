@@ -15,10 +15,13 @@ then falling back to the defaults.
 """
 from __future__ import unicode_literals
 
+import importlib
+
 from django.conf import settings
-from django.utils import six, importlib
+from django.utils import six
 
 from .constants import *
+
 
 USER_SETTINGS = getattr(settings, 'STORED_MESSAGES', None)
 MESSAGE_TAGS = getattr(settings, 'MESSAGE_TAGS', {})
@@ -39,6 +42,7 @@ DEFAULTS = {
         STORED_ERROR: 'stored error',
     }),
     'INBOX_EXPIRE_DAYS': 30,
+    'MESSAGE_EXPIRE_DAYS': 120,
     'STORAGE_BACKEND': 'stored_messages.backends.DefaultBackend',
     # Only for Redis backend
     'REDIS_URL': 'redis://username:password@localhost:6379/0',

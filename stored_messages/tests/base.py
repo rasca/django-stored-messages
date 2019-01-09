@@ -1,21 +1,22 @@
 from __future__ import unicode_literals
 
+from django.contrib.auth import get_user_model
 from django.test import TestCase, RequestFactory
 from django.utils.six.moves import reload_module
 
-from stored_messages.compat import get_user_model
-from stored_messages import settings
-from stored_messages import storage
-
 import mock
+
+from stored_messages import storage
+from stored_messages import settings
 
 
 class BaseTest(TestCase):
-    urls = 'tests.urls'
-
     def setUp(self):
-        self.factory = RequestFactory()
+        # settings and storage modules should be reloaded
+        reload_module(settings)
+        reload_module(storage)
 
+        self.factory = RequestFactory()
         self.user = get_user_model().objects.create_user("test_user", "t@user.com", "123456")
         self.request = RequestFactory().get('/')
         self.request.session = mock.MagicMock()
@@ -32,10 +33,8 @@ class BackendBaseTest(BaseTest):
     need to ovveride settings is a little bit tricky
     """
     def setUp(self):
-        reload_module(settings)
-        reload_module(storage)
-        self.backend = settings.stored_messages_settings.STORAGE_BACKEND()
         super(BackendBaseTest, self).setUp()
+        self.backend = settings.stored_messages_settings.STORAGE_BACKEND()
 
     def tearDown(self):
         self.backend._flush()

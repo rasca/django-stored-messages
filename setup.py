@@ -4,7 +4,7 @@
 import os
 import sys
 
-version = '1.1.1'  # when changing this, please take a moment for doing the same in docs/conf.py
+version = '1.4.1'  # when changing this, please take a moment for doing the same in docs/conf.py
 
 try:
     from setuptools import setup
@@ -34,22 +34,23 @@ setup(
     ],
     include_package_data=True,
     install_requires=[
-        'Django>=1.4',
+        'Django>=1.8',
     ],
-    test_suite='runtests.run_tests',
     license="BSD",
     zip_safe=False,
     keywords='django-stored-messages',
     classifiers=[
-        'Development Status :: 4 - Beta',
+        'Development Status :: 5 - Production/Stable',
         'Framework :: Django',
+        'Framework :: Django :: 1.8',
+        'Framework :: Django :: 1.9',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: BSD License',
         'Natural Language :: English',
         "Programming Language :: Python :: 2",
-        'Programming Language :: Python :: 2.6',
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.3',
+        'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3.5',
     ],
 )
