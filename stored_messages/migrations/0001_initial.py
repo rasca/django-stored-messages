@@ -37,18 +37,18 @@ class Migration(migrations.Migration):
             name='MessageArchive',
             fields=[
                 ('id', models.AutoField(auto_created=True, serialize=False, primary_key=True, verbose_name='ID')),
-                ('message', models.ForeignKey(to='stored_messages.Message')),
-                ('user', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
+                ('message', models.ForeignKey(to='stored_messages.Message', on_delete=django.db.models.deletion.CASCADE)),
+                ('user', models.ForeignKey(to=settings.AUTH_USER_MODEL, on_delete=django.db.models.deletion.CASCADE)),
             ],
         ),
         migrations.AddField(
             model_name='inbox',
             name='message',
-            field=models.ForeignKey(to='stored_messages.Message'),
+            field=models.ForeignKey(to='stored_messages.Message', on_delete=django.db.models.deletion.CASCADE),
         ),
         migrations.AddField(
             model_name='inbox',
             name='user',
-            field=models.ForeignKey(to=settings.AUTH_USER_MODEL),
+            field=models.ForeignKey(to=settings.AUTH_USER_MODEL, on_delete=django.db.models.deletion.CASCADE),
         ),
     ]
