@@ -3,13 +3,11 @@ from __future__ import unicode_literals
 from django.db import models
 from django.conf import settings
 from django.utils import timezone
-from django.utils.encoding import python_2_unicode_compatible
 from django.utils.translation import ugettext_lazy as _
 
 from .settings import stored_messages_settings
 
 
-@python_2_unicode_compatible
 class Message(models.Model):
     """
     This model represents a message on the database. Fields are the same as in
@@ -25,7 +23,6 @@ class Message(models.Model):
         return self.message
 
 
-@python_2_unicode_compatible
 class MessageArchive(models.Model):
     """
     This model holds all the messages users received. Corresponding
@@ -38,7 +35,6 @@ class MessageArchive(models.Model):
         return "[%s] %s" % (self.user, self.message)
 
 
-@python_2_unicode_compatible
 class Inbox(models.Model):
     """
     Inbox messages are stored in this model until users read them. Once read,
