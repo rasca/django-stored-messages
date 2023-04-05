@@ -33,8 +33,8 @@ Features
 Compatibility table
 -------------------
 
-* Python 2.7, 3.4, 3.5, 3.6
-* Django 1.8, 1.9, 2.0
+* Python 3.11
+* Django 4.0
 * Django Rest Framework >= 3.3 (only if you want to use REST endpoints)
 
 Do you use an earlier version of Django or Django Rest Framework? An `old version of stored_messages`_ is available even

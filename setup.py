@@ -4,7 +4,7 @@
 import os
 import sys
 
-version = '1.4.2'  # when changing this, please take a moment for doing the same in docs/conf.py
+version = '1.5'  # when changing this, please take a moment for doing the same in docs/conf.py
 
 try:
     from setuptools import setup
@@ -34,7 +34,7 @@ setup(
     ],
     include_package_data=True,
     install_requires=[
-        'Django>=3.0',
+        'Django>=4.0,<4.1',
     ],
     license="BSD",
     zip_safe=False,
@@ -42,13 +42,11 @@ setup(
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Framework :: Django',
-        'Framework :: Django :: 1.8',
-        'Framework :: Django :: 1.9',
+        'Framework :: Django :: 4.0',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: BSD License',
         'Natural Language :: English',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.4',
-        'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.11',
     ],
 )
