@@ -19,7 +19,7 @@ faked.
 
 
 Migrate from 1.2.0 (or earlier) to 1.4.0
---------------------------------------
+----------------------------------------
 
 Version ``1.2.0.`` (or earlier) has all models except the ``url`` field introduced in the ``Message`` model.
 For this reason the initial migration should be faked, while the second should be executed.

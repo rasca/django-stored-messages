@@ -21,11 +21,11 @@ class RedisMock(object):
     Mock the Redis server instance with Django in-memory cache
     """
     def rpush(self, key, data):
-        l = cache.get(key)
-        if l is None:
-            l = []
-        l.append(data)
-        cache.set(key, l)
+        value = cache.get(key)
+        if value is None:
+            value = []
+        value.append(data)
+        cache.set(key, value)
 
     def lrange(self, key, *args, **kwargs):
         return cache.get(key) or []
@@ -34,9 +34,9 @@ class RedisMock(object):
         cache.delete(key)
 
     def lrem(self, key, count, data):
-        l = cache.get(key)
-        l.remove(data)
-        cache.set(key, l)
+        value = cache.get(key)
+        value.remove(data)
+        cache.set(key, value)
 
     def flushdb(self):
         cache.clear()
@@ -46,14 +46,14 @@ class RedisMock(object):
         return r is not None and val in r
 
     def sadd(self, key, val):
-        l = cache.get(key)
+        value = cache.get(key)
 
-        if l is None:
-            l = []
+        if value is None:
+            value = []
 
-        if val not in l:
-            l.append(val)
-            cache.set(key, l)
+        if val not in value:
+            value.append(val)
+            cache.set(key, value)
 
     @staticmethod
     def from_url(*args, **kwargs):

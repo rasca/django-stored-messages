@@ -19,7 +19,7 @@ import importlib
 
 from django.conf import settings
 
-from .constants import *
+from .constants import STORED_DEBUG, STORED_INFO, STORED_SUCCESS, STORED_WARNING, STORED_ERROR
 
 
 USER_SETTINGS = getattr(settings, 'STORED_MESSAGES', None)

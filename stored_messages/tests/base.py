@@ -5,7 +5,6 @@ from django.test import TestCase, RequestFactory
 
 import mock
 
-from stored_messages import storage
 from stored_messages import settings
 
 

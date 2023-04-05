@@ -65,3 +65,5 @@ STORED_MESSAGES = {
 
 MOCK_REDIS_SERVER = False
 SECRET_KEY = 'FUUUFU'
+
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'

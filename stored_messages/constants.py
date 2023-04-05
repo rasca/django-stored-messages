@@ -1,4 +1,4 @@
-from django.contrib.messages.constants import *
+from django.contrib.messages.constants import DEBUG, INFO, SUCCESS, WARNING, ERROR, DEFAULT_TAGS
 
 
 STORED_DEBUG = DEBUG + 1
